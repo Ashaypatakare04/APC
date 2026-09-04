@@ -30,13 +30,13 @@ class acc2(bank):
         super().__init__(n,acc)
         
 obj1=acc1("Customer 1",12345678910)
-obj1.check_balance()
 obj1.deposit(5000)
+obj1.check_balance()
 obj1.withdraw(1000)
 obj1.check_balance()
 
 obj2=acc2("Customer 2",9876543210)
-obj2.check_balance()
 obj2.deposit(50000)
+obj2.check_balance()
 obj1.withdraw(1000)
 obj2.check_balance()
