@@ -9,7 +9,7 @@ class bank:
         print(f"amount {n} has been deposited.")
         
     def withdraw(self,n):
-        if self.bal>0:
+        if self.bal>n:
             self.bal-=n
             print(f"amount {n} has been withdrawn.")
         else:
@@ -38,5 +38,5 @@ obj1.check_balance()
 obj2=acc2("Customer 2",9876543210)
 obj2.deposit(50000)
 obj2.check_balance()
-obj1.withdraw(1000)
+obj2.withdraw(1000)
 obj2.check_balance()
