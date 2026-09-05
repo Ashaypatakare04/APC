@@ -1,42 +1,56 @@
-class bank:
-    def __init__(self,name,acc_no):
-        self.name=name
-        self.bal=0
-        self.acc_no=acc_no
-        
-    def deposit(self,n):
-        self.bal+=n
-        print(f"amount {n} has been deposited.")
-        
-    def withdraw(self,n):
-        if self.bal>n:
-            self.bal-=n
-            print(f"amount {n} has been withdrawn.")
+class BankAccount:
+    account_counter = 1000
+
+    def __init__(self, account_holder):
+        self.account_holder = account_holder
+        self.balance = 0
+
+        BankAccount.account_counter += 1
+        self.account_number = BankAccount.account_counter
+
+    def deposit(self, amount):
+        self.balance += amount
+        print(f"Amount {amount} deposited successfully.")
+
+    def withdraw(self, amount):
+        if self.balance >= amount:
+            self.balance -= amount
+            print(f"Amount {amount} withdrawn successfully.")
         else:
-            print("Insufficient balance.")
+            print("Error: Insufficient balance.")
 
-    def check_balance(self):
-        print(f"Balance-->{self.bal}")
-        
-    def transfer(self,n):
-        pass
-    
-class acc1(bank):
-    def __init__(self,n,acc):
-        super().__init__(n,acc)
+    def display_balance(self):
+        print(f"Account Holder: {self.account_holder}")
+        print(f"Account Number: {self.account_number}")
+        print(f"Current Balance: {self.balance}")
 
-class acc2(bank):
-    def __init__(self,n,acc):
-        super().__init__(n,acc)
-        
-obj1=acc1("Customer 1",12345678910)
-obj1.deposit(5000)
-obj1.check_balance()
-obj1.withdraw(1000)
-obj1.check_balance()
+    def transfer(self, amount, other_account):
+        if self.balance >= amount:
+            self.balance -= amount
+            other_account.balance += amount
+            print(f"Amount {amount} transferred successfully.")
+        else:
+            print("Error: Insufficient balance for transfer.")
 
-obj2=acc2("Customer 2",9876543210)
-obj2.deposit(50000)
-obj2.check_balance()
-obj2.withdraw(1000)
-obj2.check_balance()
+
+account1 = BankAccount("Customer 1")
+account2 = BankAccount("Customer 2")
+
+account1.deposit(5000)
+account1.withdraw(1000)
+account1.display_balance()
+
+print()
+
+account2.deposit(10000)
+account2.withdraw(2000)
+account2.display_balance()
+
+print()
+
+account1.transfer(2000, account2)
+
+print("\nAfter Transfer:")
+account1.display_balance()
+print()
+account2.display_balance()
