@@ -40,7 +40,7 @@ account1.deposit(5000)
 account1.withdraw(1000)
 account1.display_balance()
 
-print()
+print("/n")
 
 account2.deposit(10000)
 account2.withdraw(2000)
