@@ -7,4 +7,4 @@ class demo:
     def __del__(self):
         print("destructor is called!")
 obj=demo()
-obj.fun("Ashay")
+obj.fun("Ashay Patakare")
