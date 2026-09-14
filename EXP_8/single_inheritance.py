@@ -8,6 +8,6 @@ class month(year):
     def display(self):
         print("This is ",self.month,"of year",self.year,"!")
  
-print("This is an example of single inheritance-->")       
+print("This is an Demo of single inheritance-->")       
 obj=month("September","2026")
 obj.display()
